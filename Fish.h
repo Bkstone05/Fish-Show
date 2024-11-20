@@ -51,18 +51,15 @@ class Fish
     //print out the class
     void printFish()
     {
-        cout << "***************************************";
-        cout << "Owner of Fish: " << ownerName; 
-        cout << "Fish Type: " << typeOfFish;
-        cout << "Weight on Scale: " << weight;
-        cout << "Size of Fin: " << finSize; 
-        cout << "***************************************";
+        cout << "\n***************************************";
+        cout << "\nOwner of Fish: " << ownerName; 
+        cout << "\nFish Type: " << typeOfFish;
+        cout << "\nWeight on Scale: " << weight;
+        cout << "\nSize of Fin: " << finSize; 
+        cout << "\n***************************************";
     }
 
-    ~Fish()
-    {
-       cout << "*deathdrop*"; 
-    }
+    ~Fish() {}; 
 
 };
 

@@ -119,13 +119,13 @@ void BinaryTree::makeDeletion(TreeNode *& nodePointer)
 */
 void BinaryTree::preOrder(TreeNode * nodePointer) const
 {
-    int counter = 0;
     if(nodePointer)
     {
-        cout << counter+1 << ".\t" << nodePointer->value.getW() << endl;
+        cout << "\n" ;
+        nodePointer->value.printFish();
         preOrder(nodePointer->left);
         preOrder(nodePointer->right);
-        counter++;
+
     }
 }
 
@@ -136,13 +136,13 @@ void BinaryTree::preOrder(TreeNode * nodePointer) const
 */
 void BinaryTree::postOrder(TreeNode * nodePointer) const
 {
-    int counter = 0;
+
     if(nodePointer)
     {
         postOrder(nodePointer->left);
         postOrder(nodePointer->right);
-        cout << counter+1 << ".\t" << nodePointer->value.getW() << endl;
-        counter ++;
+        cout << "\n";
+        nodePointer->value.printFish();
     }
 }
 
@@ -243,16 +243,13 @@ Fish BinaryTree::max(TreeNode* root)
     if(root == NULL)
     {
         cout << "Nobody Has Entered The Drag Show Yet.";
-        return;
+        return root->value;
     }
     if(root->right)
     {
         max(root->right);
     }
-    else
-    {
-        return root->value;
-    }
+    return root->value;
 }
 
 
@@ -265,14 +262,12 @@ Fish BinaryTree::min(TreeNode* root)
     if(root == NULL)
     {
         cout << "Nobody Has Entered The Drag Show Yet.";
-        return;
+        return root->value;
     }
     if(root->left)
     {
         min(root->left);
     }
-    else
-    {
-        return root->value;
-    }
+   
+    return root->value;
 }
