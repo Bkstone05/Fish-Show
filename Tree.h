@@ -21,16 +21,25 @@ class BinaryTree
         TreeNode* root;
         int numNodes;
 
-        //Private member Functions
+        public:
         void insert(TreeNode *&, TreeNode *&);
-        void destroySubTree(TreeNode*);
         void deleteNode(Fish, TreeNode*);
         void makeDeletion(TreeNode *&);
         void fullDisplayInOrder(TreeNode*) const;
         void displayPreOrder(TreeNode*) const; //could need to be post Order TBH
 
-        public:
-        
+        //constructor
+        CreateBinaryTree()
+        {
+            root = NULL;
+            numNodes = 0;
+        }
+
+        //destructor 
+        ~CreateBinaryTree()
+        {
+            destroySubTree(root);
+        }
 
 };
 
