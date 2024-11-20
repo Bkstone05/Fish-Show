@@ -39,22 +39,22 @@ int main()
     cout << "Time to Disqualify ANY fishes with a Small Fin Size :("; 
     cout << "What Fin Size is too small for our drag contest? ";
     cin >> disqualify;  
-    disqualifyfunct(&place, disqualify, contestants); 
+    place.disqualify(place.getRoot(), disqualify);
     cout << "\nAnd life reminds me, again and again: You have to dismantle the old to make the space for something new.";
     cout << "\nNow of course we take fashionably late queens! Enter any last minute entries here: ";
-    contestants = lateQueens(&place, contestants);
+    contestants = lateQueens(&place, contestants, disqualify);
     cout << "May the Best Fish Win!";
-    skinny = place.min();
-    curvy = place.max();
+    skinny = place.min(place.getRoot());
+    curvy = place.max(place.getRoot());
     cout << "Our Curvy Lady is....";
-    curvy.printFish(); 
+    curvy.printFish();  
     cout << "Our Skinny Queen is....";
     skinny.printFish(); 
     cout << "Excuses are for losers and winning is for winners like you!"; 
     cout << "Curvy Lady Placements: ";
-    place.postOrder();
+    place.postOrder(place.getRoot());
     cout << "Skinny Queen Placements: ";
-    place.preOrder();
+    place.preOrder(place.getRoot());
     cout << "Haters gonna hate, but here are the only words you need for them. Sashay, away. - RuPaul The Queen Of The Drag Fishes!";
 }
 
@@ -77,28 +77,13 @@ void makeContestants(BinaryTree * tree, int contestants)
 
         Fish newFish(name, type, weight, finSize);
 
-        tree->insert(newFish); 
+        tree->insertNode(newFish); 
     }
 
     return; 
 }
 
-void disqualifyfunct(BinaryTree * tree, int disq, int contestants)
-{
-    Fish temp; 
-
-    for(int i =0; i<contestants; i++)
-    {
-        if(tree->getFishSize() < disq)
-        {
-            temp = tree->deleteNode();
-            temp.printFish();
-            cout << "\nhas been disqualified! Good God Girl, You Gotta Get A Grip!";
-        }
-    }
-}
-
-int lateQueens(BinaryTree * tree, int contestants)
+int lateQueens(BinaryTree * tree, int contestants, float dis)
 {
     string name, type;
     float weight, finSize;
@@ -113,11 +98,20 @@ int lateQueens(BinaryTree * tree, int contestants)
         cin >> weight;
         cout << "Length of Fin: ";
         cin >> finSize; 
-
+        
         Fish newFish(name, type, weight, finSize);
 
-        tree->insert(newFish);
+        if(newFish.getFS() < dis)
+        {
+            cout << "Queen Your Fins Are Tooooo Small";
+            newFish.printFish(); 
+            cout << "\nhas been disqualified! Good God Girl, You Gotta Get A Grip!";
+        }
+        else
+        {
+        tree->insertNode(newFish);
         contestants = contestants+1; 
+        }
 
         cout << "Is another queen running behind? 1-yes 2-no";
         cin >> choice;
