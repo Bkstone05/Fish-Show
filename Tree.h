@@ -21,25 +21,58 @@ class BinaryTree
         TreeNode* root;
         int numNodes;
 
-        public:
         void insert(TreeNode *&, TreeNode *&);
-        void deleteNode(Fish, TreeNode*);
+        void destroySubTree(TreeNode *);
+        void deleteNode(Fish, TreeNode*&);
         void makeDeletion(TreeNode *&);
-        void fullDisplayInOrder(TreeNode*) const;
-        void displayPreOrder(TreeNode*) const; //could need to be post Order TBH
+
+
+        public:
 
         //constructor
-        CreateBinaryTree()
+        BinaryTree()
         {
             root = NULL;
             numNodes = 0;
         }
 
+        void insertNode(Fish);
+        void remove(Fish);
+        void preOrder(TreeNode *) const;
+		void postOrder(TreeNode *) const;
+        bool searchNode(Fish target);
+        void disqualify(TreeNode* root, float dis);
+        Fish max(TreeNode* root); 
+        Fish min(TreeNode* root);
+
+        
+
+        void displayPreOrder() const
+        {
+            preOrder(root);
+        }
+
+        void displayPostOrder() const
+        {
+            postOrder(root); 
+        }
+
+        int getNumNodes() const
+        {
+            return numNodes;
+        }
+
+        TreeNode* getRoot() const
+        {
+            return root; 
+        }
+        
         //destructor 
-        ~CreateBinaryTree()
+        ~BinaryTree()
         {
             destroySubTree(root);
         }
+        
 
 };
 

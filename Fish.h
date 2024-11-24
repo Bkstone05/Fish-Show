@@ -48,10 +48,18 @@ class Fish
     float getW() const;
     float getFS() const;
 
-    ~Fish()
+    //print out the class
+    void printFish()
     {
-        //need to do
+        cout << "\n***************************************";
+        cout << "\nOwner of Fish: " << ownerName; 
+        cout << "\nFish Type: " << typeOfFish;
+        cout << "\nWeight on Scale: " << weight;
+        cout << "\nSize of Fin: " << finSize; 
+        cout << "\n***************************************";
     }
+
+    ~Fish() {}; 
 
 };
 
