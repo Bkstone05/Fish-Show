@@ -14,7 +14,7 @@ int lateQueens(BinaryTree * tree, int contestants, float disq);
 
 int main()
 {
-    int contestants;
+    int contestants, choice;
     BinaryTree place; 
     float disqualify; 
     Fish skinny, curvy;
@@ -50,10 +50,24 @@ int main()
     cout << "\nOur Skinny Queen is....";
     skinny.printFish(); 
     cout << "\n\nExcuses are for losers and winning is for winners like you!\n"; 
-    cout << "\nCurvy Lady Placements:";
-    place.postOrder(place.getRoot());
-    cout << "\nSkinny Queen Placements:";
-    place.preOrder(place.getRoot());
+    cout << "Placements by weight:  \n";
+    place.inOrder(place.getRoot());
+    cout << "If you would like to see pre or post order: choose 1-Pre 2-Post 3-No";
+    cin >> choice;
+    while(choice == 1 || choice == 2)
+    {
+        if(choice == 1)
+        {
+            place.preOrder(place.getRoot());
+        }
+        else if(choice == 2)
+        {
+            place.postOrder(place.getRoot());
+        }
+        cout << "\nIf you would like to see pre or post order: choose 1-Pre 2-Post 3-No";
+        cin >> choice; 
+    }
+
     cout << "\n\nHaters gonna hate, but here are the only words you need for them. Sashay, away. \n\t- RuPaul The Queen Of The Drag Fishes!";
 }
 
