@@ -38,6 +38,7 @@ class BinaryTree
 
         void insertNode(Fish);
         void remove(Fish);
+        void inOrder(TreeNode* ) const;
         void preOrder(TreeNode *) const;
 		void postOrder(TreeNode *) const;
         bool searchNode(Fish target);

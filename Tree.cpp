@@ -81,7 +81,7 @@ void BinaryTree::makeDeletion(TreeNode *& nodePointer)
 
     if(nodePointer == NULL)
     {
-        cout << "Cannot delete an empty node.\n";
+        cout << "This Queen has no makeup on! Lets get her pampered!\n";
     }
     else if(nodePointer->right == NULL)
     {
@@ -146,6 +146,17 @@ void BinaryTree::postOrder(TreeNode * nodePointer) const
     }
 }
 
+void BinaryTree::inOrder(TreeNode* nodeptr) const
+{
+    if(nodeptr != NULL)
+    {
+        inOrder(nodeptr->left);
+        cout << endl; 
+        nodeptr->value.printFish();
+        inOrder(nodeptr->right); 
+    }
+}
+
 
 /*
     Function:   insertNode()
@@ -157,7 +168,7 @@ void BinaryTree::insertNode(Fish name)
 
     if(this->searchNode(name))
     {
-        cout << "\nI'm sorry, " << name.getON() << " is already in the drag race" << endl;
+        cout << "\nGirllllll, " << name.getON() << " is already a queen" << endl;
 
     }
     else
@@ -172,7 +183,7 @@ void BinaryTree::insertNode(Fish name)
         //numNodes gets incremented
         numNodes++;
 
-        cout << "The " << name.getON() << " has been added to the drag race!\n";
+        cout << "The " << name.getON() << " is a queen! Will they win?\n";
     }
 }
 
@@ -242,7 +253,7 @@ Fish BinaryTree::max(TreeNode* root)
 {
     if(root == NULL)
     {
-        cout << "Nobody Has Entered The Drag Show Yet.";
+        cout << "No Queens are here? How is EVERYONE fashionably late?";
         return root->value;
     }
     if(root->right)
@@ -261,7 +272,7 @@ Fish BinaryTree::min(TreeNode* root)
 {
     if(root == NULL)
     {
-        cout << "Nobody Has Entered The Drag Show Yet.";
+        cout << "No Queens are here? How is EVERYONE fashionably late?";
         return root->value;
     }
     if(root->left)
