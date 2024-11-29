@@ -19,7 +19,7 @@ int main()
     float disqualify; 
     Fish skinny, curvy;
     
-    cout << "\n _   _   _   _     _   _   _   _  " ;
+    cout << "\n  _   _   _   _     _   _   _   _  " ;
     cout << "\n / \\ / \\ / \\ / \\   / \\ / \\ / \\ / \\  ";
     cout << "\n( F | i | s | h ) ( S | h | o | w ) "; 
     cout << "\n \\_/ \\_/ \\_/ \\_/   \\_/ \\_/ \\_/ \\_/ "; 
