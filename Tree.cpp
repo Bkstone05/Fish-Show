@@ -52,7 +52,7 @@ void BinaryTree::destroySubTree(TreeNode * nodePointer)
 
 /*
     Function:   deleteNode()
-    Purpose:    to delete a node 
+    Purpose:    to find the node to delete 
 */
 void BinaryTree::deleteNode(Fish byeFish, TreeNode*& nodePointer)
 {
@@ -66,7 +66,7 @@ void BinaryTree::deleteNode(Fish byeFish, TreeNode*& nodePointer)
     }
     else
     {
-        makeDeletion(nodePointer);
+        makeDeletion(nodePointer); //calls function to perform deletion
     }
 }
 
@@ -115,7 +115,7 @@ void BinaryTree::makeDeletion(TreeNode *& nodePointer)
 
 /*
     Function:   preOrder()
-    Purpose:    orders the fish in increasing weight
+    Purpose:    orders the fish in preorder
 */
 void BinaryTree::preOrder(TreeNode * nodePointer) const
 {
@@ -132,7 +132,7 @@ void BinaryTree::preOrder(TreeNode * nodePointer) const
 
 /*
     Function:   postOrder()
-    Purpose:    orders the fish in decreasing weight
+    Purpose:    orders the fish in postorder
 */
 void BinaryTree::postOrder(TreeNode * nodePointer) const
 {
@@ -146,6 +146,10 @@ void BinaryTree::postOrder(TreeNode * nodePointer) const
     }
 }
 
+/*
+    Function:   inOrder()
+    Purpose:    orders the fish in order
+*/
 void BinaryTree::inOrder(TreeNode* nodeptr) const
 {
     if(nodeptr != NULL)
@@ -190,7 +194,7 @@ void BinaryTree::insertNode(Fish name)
 
 /*
     Function:   remove()
-    Purpose:    remove dat bish 
+    Purpose:    remove dat fish 
 */
 void BinaryTree::remove(Fish name)
 {
@@ -205,6 +209,10 @@ void BinaryTree::remove(Fish name)
 */
 void BinaryTree::disqualify(TreeNode* root, float dis)
 {
+    if(root->left == NULL && root->right == NULL)
+    {
+        return; 
+    }
     if(root->value.getFS() < dis)
     {
         deleteNode(root->value, root);
@@ -213,6 +221,7 @@ void BinaryTree::disqualify(TreeNode* root, float dis)
     }
     else
     {
+        cout << "HERE";
         disqualify(root->left, dis);
     }
 }
@@ -220,7 +229,7 @@ void BinaryTree::disqualify(TreeNode* root, float dis)
 
 /*
     Function:   searchNode()
-    Purpose:    searches the node
+    Purpose:    searches for the node
 */
 bool BinaryTree::searchNode(Fish target)
 {

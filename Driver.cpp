@@ -1,6 +1,6 @@
 /*
     Title:      Driver.cpp
-    Purpose:    to drive
+    Purpose:    User interface and interactions 
 */
 
 #include "Tree.h"
@@ -19,6 +19,7 @@ int main()
     float disqualify; 
     Fish skinny, curvy;
     
+    //print out art
     cout << "\n  _   _   _   _     _   _   _   _  " ;
     cout << "\n / \\ / \\ / \\ / \\   / \\ / \\ / \\ / \\  ";
     cout << "\n( F | i | s | h ) ( S | h | o | w ) "; 
@@ -32,16 +33,18 @@ int main()
         cout << "\nSorry You Must Have 3-15 Contestants to Make A Good Show Darling!";
         cin >> contestants; 
     }
-    makeContestants(&place, contestants);
+    makeContestants(&place, contestants); //calls function to get all contestants
 
     cout << "\nWell wasn't that Fish-tastic!!\n";
     cout << "\nTime to Disqualify ANY fishes with a Small Fin Size :(\n"; 
     cout << "\nWhat Fin Size is too small for our drag contest? ";
     cin >> disqualify;  
-    place.disqualify(place.getRoot(), disqualify);
+    place.disqualify(place.getRoot(), disqualify); // calls function to  disqualify 
     cout << "\nAnd life reminds me, again and again: You have to dismantle the old to make the space for something new.";
     cout << "\nNow of course we take fashionably late queens! \n\nEnter any last minute entries here: ";
     contestants = lateQueens(&place, contestants, disqualify);
+
+    //getting and printing all results 
     cout << "\nMay the Best Fish Win!";
     skinny = place.min(place.getRoot());
     curvy = place.max(place.getRoot());
@@ -71,7 +74,10 @@ int main()
     cout << "\n\nHaters gonna hate, but here are the only words you need for them. Sashay, away. \n\t- RuPaul The Queen Of The Drag Fishes!";
 }
 
-
+/********************************************************
+ * makeContestants
+ * gets all initial contestants by using a for loop
+ *******************************************************/
 void makeContestants(BinaryTree * tree, int contestants)
 {
     string name, type;
@@ -97,6 +103,10 @@ void makeContestants(BinaryTree * tree, int contestants)
     return; 
 }
 
+/********************************************************
+ * lateQueens
+ * gets all last minute additions
+ *******************************************************/
 int lateQueens(BinaryTree * tree, int contestants, float dis)
 {
     string name, type;

@@ -21,6 +21,7 @@ class BinaryTree
         TreeNode* root;
         int numNodes;
 
+        //helper functions
         void insert(TreeNode *&, TreeNode *&);
         void destroySubTree(TreeNode *);
         void deleteNode(Fish, TreeNode*&);
@@ -36,6 +37,7 @@ class BinaryTree
             numNodes = 0;
         }
 
+        //functions needed 
         void insertNode(Fish);
         void remove(Fish);
         void inOrder(TreeNode* ) const;
@@ -46,23 +48,8 @@ class BinaryTree
         Fish max(TreeNode* root); 
         Fish min(TreeNode* root);
 
-        
-
-        void displayPreOrder() const
-        {
-            preOrder(root);
-        }
-
-        void displayPostOrder() const
-        {
-            postOrder(root); 
-        }
-
-        int getNumNodes() const
-        {
-            return numNodes;
-        }
-
+    
+        //helper to send TreeNodes 
         TreeNode* getRoot() const
         {
             return root; 

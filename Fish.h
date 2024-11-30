@@ -28,7 +28,9 @@ class Fish
         this->finSize = 0;
     }
 
-    Fish(string on, string tf, float w, float fs) //Overloaded
+    
+    //Overloaded Constructor
+    Fish(string on, string tf, float w, float fs)
     {
         this->ownerName = on;
         this->typeOfFish = tf;
@@ -49,16 +51,9 @@ class Fish
     float getFS() const;
 
     //print out the class
-    void printFish()
-    {
-        cout << "\n***************************************";
-        cout << "\nOwner of Fish: " << ownerName; 
-        cout << "\nFish Type: " << typeOfFish;
-        cout << "\nWeight on Scale: " << weight;
-        cout << "\nSize of Fin: " << finSize; 
-        cout << "\n***************************************";
-    }
+    void printFish();
 
+    //deconstructor 
     ~Fish() {}; 
 
 };
